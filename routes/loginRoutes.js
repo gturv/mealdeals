@@ -1,5 +1,5 @@
 const mongoose =  require('mongoose');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const passport = require('passport')
 
 const Users = mongoose.model('users')

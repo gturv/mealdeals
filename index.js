@@ -18,19 +18,6 @@ mongoose.connect(keys.mongoURI, {
 
 const app = express(); // create an instance of an express server
 
-//const initializePassport = require('./passport-config') // created initialization function in other file
-
-//initializePassport(passport) // imported this from other file and ran to initialize passport
-
-//require('./passport-config');
-
-/* Users.findOne({ email: 'greigturvey@gmail.com' }, (err, user) => {
-    console.log('err', err)
-    console.log('user', user)
-} ) */
-
-
-
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
 //app.use(flash());
