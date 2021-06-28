@@ -7,13 +7,15 @@ const keys = require('./config/keys')
 const flash = require('express-flash');
 const session = require('express-session');
 require('./models/Deal');
-require('./models/Users');
+require('./models/Users')
+require('./models/DealCombined');
 const Users = mongoose.model('users')
 
 mongoose.connect(keys.mongoURI, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 });
 
 const app = express(); // create an instance of an express server
@@ -58,6 +60,11 @@ passport.deserializeUser((id, done) => {
 
 require('./routes/restaurantRoutes')(app)
 require('./routes/loginRoutes')(app)
+app.post('/', (req, res) => { // why is this one responding???
+    console.log(req.data)
+    console.log('recieved')
+    res.send('wtf')
+})
 
 
 if (process.env.NODE_ENV == 'production') { // this ensures  Express behaves correctly in production when we no longer have the create react app server
